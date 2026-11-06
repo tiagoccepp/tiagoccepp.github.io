@@ -61,6 +61,7 @@ section{padding:2.2rem 0}
 .links a.gh:hover{color:#fff;border-bottom-color:#fff}
 .links a.demo{font-family:var(--fm);font-size:.8rem;font-weight:700;text-decoration:none;color:#06251f;background:var(--tick);border-radius:7px;padding:.35rem .8rem}
 .links a.demo:hover{filter:brightness(1.12)}
+.live-pill{font-family:var(--fm);font-size:.62rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#05281c;background:var(--agent);border-radius:99px;padding:.18rem .6rem;vertical-align:middle}
 .run{font-family:var(--fm);font-size:.75rem;color:var(--faint);background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:.35rem .7rem;overflow-x:auto;white-space:nowrap;max-width:100%}
 video{width:100%;display:block;background:#000;border-bottom:1px solid var(--line);aspect-ratio:16/10;object-fit:cover}
 .labs{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
@@ -93,7 +94,7 @@ footer .avail{margin-left:auto;font-family:var(--fm);font-size:.75rem;color:var(
   <header class="hero">
     <div class="kicker">Montevideo, Uruguay · UTC−3 · remote-friendly</div>
     <h1>Tiago Colo builds AI software that shows its work. <em>Junior Software Engineer.</em></h1>
-    <p class="lede">Five projects, five recorded demos. <strong>RAG with cited answers</strong>, a <strong>multi-agent support system</strong> you can watch think, a <strong>ticket classifier</strong> that knows when to ask a human, a <strong>calibrated churn predictor</strong>, and a <strong>WordPress theme for law firms</strong> with a live demo site. Every repo runs with one command, ships tests and evals, and the AI backends are verified against a real LLM API.</p>
+    <p class="lede">Six projects, five recorded demos — plus a <strong>live voice-AI squad</strong> you can talk to right now. <strong>RAG with cited answers</strong>, a <strong>multi-agent support system</strong> you can watch think, a <strong>ticket classifier</strong> that knows when to ask a human, a <strong>calibrated churn predictor</strong>, and a <strong>WordPress theme for law firms</strong> with a live demo site. Every repo runs with one command, ships tests and evals, and the AI backends are verified against a real LLM API.</p>
     <div class="cta">
       <a class="btn primary" href="#projects">Watch the demos</a>
       <a class="btn ghost" href="https://github.com/tiagoccepp">GitHub</a>
@@ -142,6 +143,15 @@ footer .avail{margin-left:auto;font-family:var(--fm);font-size:.75rem;color:var(
         <p><strong>Calibrated churn scoring</strong>: HistGradientBoosting + 5-fold sigmoid calibration, so probabilities mean what they say (log-loss 0.39 vs 0.49 uncalibrated, ECE 0.023). The UI explains every score with <strong>top-3 drivers</strong> and a live model card with calibration table. 19 tests, fail-loud eval gates.</p>
         <div class="tags"><span>Python</span><span>scikit-learn</span><span>calibration</span><span>explainability</span><span>evals</span></div>
         <div class="links"><a class="demo" href="https://tiagoccepp.github.io/churn-predictor-ml/">try it now ↗</a><a class="gh" href="https://github.com/tiagoccepp/churn-predictor-ml">github.com/tiagoccepp/churn-predictor-ml</a><span class="run">git clone … && ./demo.sh</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="body">
+        <h3><span class="dot" style="background:#FF8A5C"></span>AI Employee Squad — voice meetings <span class="live-pill">live</span></h3>
+        <p>Talk to a whole AI company in your browser: a CEO and specialists who answer by <strong>voice or text</strong>, remember past meetings and learn. I adapted this open-source sim (fork) to <strong>opencode Zen — a free LLM pool with rotation</strong>, added <strong>zero-install browser voice</strong> plus one-click starter prompts, and deployed it live. Spanish-first, no signup.</p>
+        <div class="tags"><span>TypeScript</span><span>WebSocket</span><span>Web Speech API</span><span>LLM rotation</span><span>Render</span><span>live-verified LLM</span></div>
+        <div class="links"><a class="demo" href="https://equipo-0jfr.onrender.com">talk to them ↗</a><a class="gh" href="https://github.com/tiagoccepp/equipo-zen">github.com/tiagoccepp/equipo-zen</a></div>
       </div>
     </article>
 
