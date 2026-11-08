@@ -4,86 +4,128 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0B0F14">
-<meta name="description" content="Tiago Colo — Junior Software Engineer. Offline-first field software, RAG, AI agents. Watch every project run.">
-<meta property="og:title" content="Tiago Colo — Junior Software Engineer">
-<meta property="og:description" content="FieldCRM flagship, RAG, multi-agent systems, ticket triage — live demos, tests, evals. Montevideo, UY.">
+<meta name="description" content="Tiago Colo — Junior Software Engineer. 8 live demos, 224 tests green. Offline-first CRM, RAG, AI agents, calibrated ML. Montevideo, UY.">
+<meta property="og:title" content="Tiago Colo — Junior who ships tested, demoable software">
+<meta property="og:description" content="FieldCRM flagship + RAG, agents, triage, churn, voice-AI squad, WordPress. Every demo live, every repo tested.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0F14'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='%23E8EDF2' font-family='Georgia'%3ETC%3C/text%3E%3C/svg%3E">
 <title>Tiago Colo — Junior Software Engineer</title>
 <style>
 @font-face{font-family:'Sora';font-weight:800;font-style:normal;font-display:swap;src:url('assets/fonts/Sora-800.woff2') format('woff2')}
-@font-face{font-family:'PublicSans';font-weight:400;font-style:normal;font-display:swap;src:url('assets/fonts/PublicSans-400.woff2') format('woff2')}
-@font-face{font-family:'PublicSans';font-weight:600;font-style:normal;font-display:swap;src:url('assets/fonts/PublicSans-600.woff2') format('woff2')}
 @font-face{font-family:'JetBrainsMono';font-weight:400;font-style:normal;font-display:swap;src:url('assets/fonts/JetBrainsMono-400.woff2') format('woff2')}
+@font-face{font-family:'JetBrainsMono';font-weight:700;font-style:normal;font-display:swap;src:url('assets/fonts/JetBrainsMono-400.woff2') format('woff2')}
 :root{
   --bg:#0B0F14; --panel:#10161D; --raised:#151D26;
-  --line:rgba(232,237,242,.09); --line-strong:rgba(232,237,242,.16);
-  --text:#E8EDF2; --muted:#93A1B0; --faint:#5D6B7A;
-  --rag:#E5A13D; --agent:#34C77B; --tick:#4CC3FF;
-  --fd:'Sora',system-ui,sans-serif; --fb:'PublicSans',system-ui,sans-serif; --fm:'JetBrainsMono',ui-monospace,monospace;
+  --line:rgba(232,237,242,.09); --line-strong:rgba(232,237,242,.22);
+  --text:#E8EDF2; --muted:#A6B2C0; --faint:#7C8A99;
+  --action:#E8EDF2; --live:#34C77B;
+  --fd:'Sora',system-ui,sans-serif; --fb:system-ui,-apple-system,'Segoe UI',sans-serif; --fm:'JetBrainsMono',ui-monospace,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.6}
 ::selection{background:rgba(232,237,242,.25)}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--tick);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:2px solid var(--live);outline-offset:3px;border-radius:4px}
 .wrap{max-width:1080px;margin:0 auto;padding:0 1.4rem}
 
-/* hero */
-.hero{padding:4.5rem 0 3rem;text-align:left}
-.kicker{font-family:var(--fm);font-size:.78rem;color:var(--tick);letter-spacing:.02em;margin-bottom:1rem}
-.hero h1{font-family:var(--fd);font-size:clamp(2.4rem,6vw,4rem);font-weight:800;line-height:1.05;letter-spacing:-.01em;max-width:16ch}
-.hero h1 em{font-style:normal;color:var(--faint)}
-.lede{font-size:1.08rem;color:var(--muted);max-width:60ch;margin:1.1rem 0 1.6rem}
+/* hero — asymmetric 7/5 */
+.hero{display:grid;grid-template-columns:1fr;gap:2rem;padding:4rem 0 2.5rem}
+@media(min-width:900px){.hero{grid-template-columns:7fr 5fr;gap:3rem;align-items:start}}
+.kicker{font-family:var(--fm);font-size:.75rem;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem}
+.hero h1{font-family:var(--fd);font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:800;line-height:1.04;letter-spacing:-.03em;text-wrap:balance;max-width:20ch}
+.hero h1 .dim{color:var(--faint)}
+.lede{font-size:1.05rem;color:var(--muted);max-width:58ch;margin:1.1rem 0 1.5rem}
 .lede strong{color:var(--text);font-weight:600}
-.cta{display:flex;gap:.6rem;flex-wrap:wrap}
-.btn{display:inline-block;border-radius:9px;padding:.7rem 1.3rem;font-weight:600;font-size:.93rem;text-decoration:none;border:1px solid var(--line-strong);transition:border-color .18s,transform .18s}
-.btn:hover{transform:translateY(-1px)}
-.btn.primary{background:var(--text);color:#0B0F14;border-color:var(--text)}
-.btn.ghost{color:var(--text)}
-.btn.ghost:hover{border-color:var(--tick)}
-.meta{font-family:var(--fm);font-size:.75rem;color:var(--faint);margin-top:1.4rem}
+.cta-row{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;border-radius:9px;padding:.8rem 1.4rem;font-weight:700;font-size:.95rem;text-decoration:none;min-height:44px;line-height:1.4}
+.btn.primary{background:var(--action);color:#0B0F14}
+.btn.primary:hover{filter:brightness(.92)}
+.text-links{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.9rem}
+.text-links a{font-family:var(--fm);font-size:.82rem;color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--faint);padding-bottom:1px;min-height:44px;display:inline-flex;align-items:center}
+.text-links a:hover{color:#fff;border-bottom-color:#fff}
+/* side proof card */
+.proof{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.2rem 1.3rem;font-size:.9rem}
+.proof .stamp{font-family:var(--fm);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--live);margin-bottom:.7rem}
+.proof ul{list-style:none}
+.proof li{padding:.45rem 0;border-top:1px dotted var(--line-strong);color:var(--muted);font-size:.87rem}
+.proof li:first-of-type{border-top:0}
+.proof li strong{color:var(--text)}
+.proof .login{font-family:var(--fm);font-size:.75rem;color:var(--faint);margin-top:.7rem;word-break:break-all}
 
-/* projects */
-section{padding:2.2rem 0}
-.sec-h{font-family:var(--fd);font-size:.8rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:1.2rem}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:1.4rem}
-.card .body{padding:1.3rem 1.4rem 1.4rem}
-.card h3{font-family:var(--fd);font-size:1.35rem;font-weight:800;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
-.card h3 .dot{width:11px;height:11px;border-radius:3px;flex:none}
-.card p{color:var(--muted);font-size:.95rem;max-width:68ch;margin:.55rem 0 .8rem}
-.card p strong{color:var(--text)}
-.tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.9rem}
-.tags span{font-family:var(--fm);font-size:.7rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:.15rem .5rem;background:var(--raised)}
-.links{display:flex;gap:.55rem;flex-wrap:wrap;align-items:center}
-.links a.gh{font-family:var(--fm);font-size:.8rem;text-decoration:none;border-bottom:1px dotted var(--faint);padding-bottom:1px}
-.links a.gh:hover{color:#fff;border-bottom-color:#fff}
-.links a.demo{font-family:var(--fm);font-size:.8rem;font-weight:700;text-decoration:none;color:#06251f;background:var(--tick);border-radius:7px;padding:.35rem .8rem}
-.links a.demo:hover{filter:brightness(1.12)}
-.live-pill{font-family:var(--fm);font-size:.62rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#05281c;background:var(--agent);border-radius:99px;padding:.18rem .6rem;vertical-align:middle}
-.run{font-family:var(--fm);font-size:.75rem;color:var(--faint);background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:.35rem .7rem;overflow-x:auto;white-space:nowrap;max-width:100%}
-video{width:100%;display:block;background:#000;border-bottom:1px solid var(--line);aspect-ratio:16/10;object-fit:cover}
-.labs{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
-@media(max-width:640px){.labs{grid-template-columns:1fr}}
-.lab{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.2rem;text-decoration:none;transition:border-color .18s,transform .18s;display:block}
-.lab:hover{border-color:var(--line-strong);transform:translateY(-2px)}
-.lab h4{font-family:var(--fd);font-size:1rem}
-.lab p{font-size:.85rem;color:var(--muted);margin-top:.3rem}
-.lab .go{font-family:var(--fm);font-size:.75rem;color:var(--faint);margin-top:.6rem;display:block}
+/* sections */
+section{padding:2rem 0}
+.sec-h{display:flex;align-items:baseline;gap:.8rem;margin-bottom:1.2rem}
+.sec-h .n{font-family:var(--fm);font-size:.75rem;color:var(--faint)}
+.sec-h h2{font-family:var(--fd);font-size:.82rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.sec-h .rule{flex:1;border-top:1px solid var(--line);transform:translateY(-4px)}
+
+/* flagship */
+.flag{border:1px solid var(--line-strong);border-radius:16px;overflow:hidden;background:var(--panel)}
+.flag .body{padding:1.4rem 1.4rem 1.5rem}
+@media(min-width:800px){.flag .body{display:grid;grid-template-columns:7fr 5fr;gap:2rem}}
+.flag h3{font-family:var(--fd);font-size:1.5rem;letter-spacing:-.02em;text-wrap:balance;line-height:1.2}
+.flag .sub{font-family:var(--fm);font-size:.75rem;color:var(--faint);margin:.4rem 0 .7rem}
+.flag p{color:var(--muted);font-size:.95rem;max-width:62ch}
+.flag p strong{color:var(--text)}
+.facts{list-style:none;margin-top:1rem;font-size:.85rem;color:var(--muted)}
+.facts li{padding:.4rem 0;border-top:1px dotted var(--line-strong)}
+.facts li strong{color:var(--text);font-weight:600}
+.facts .mono{font-family:var(--fm);font-size:.78rem;color:var(--faint)}
+.links{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-top:1rem}
+a.demo{display:inline-flex;align-items:center;min-height:44px;font-family:var(--fm);font-size:.82rem;font-weight:700;text-decoration:none;color:#06130c;background:var(--live);border-radius:8px;padding:.55rem 1rem}
+a.demo:hover{filter:brightness(1.08)}
+a.gh{font-family:var(--fm);font-size:.8rem;text-decoration:none;border-bottom:1px dotted var(--faint);padding:.5rem 0;min-height:44px;display:inline-flex;align-items:center}
+a.gh:hover{color:#fff;border-bottom-color:#fff}
+.live-pill{font-family:var(--fm);font-size:.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#06130c;background:var(--live);border-radius:99px;padding:.2rem .6rem}
+
+/* media — NEVER crops: intrinsic ratio, contain, no cover */
+.media{background:#000;border-bottom:1px solid var(--line);overflow:hidden}
+.media video{width:100%;height:auto;display:block;background:#000;object-fit:contain;aspect-ratio:auto}
+
+/* ledger rows — alternating, editorial */
+.work{border-top:1px solid var(--line)}
+.entry{display:grid;grid-template-columns:1fr;gap:1.1rem;padding:1.8rem 0;border-bottom:1px solid var(--line)}
+@media(min-width:800px){
+  .entry{grid-template-columns:52px 1fr 1fr;gap:1.5rem;align-items:start}
+  .entry:nth-child(even) .copy{order:2}
+  .entry:nth-child(even) .media{order:3}
+  .entry:nth-child(even) .idx{order:1}
+  .entry:nth-child(odd) .media{order:2}
+  .entry:nth-child(odd) .copy{order:3}
+}
+.idx{font-family:var(--fm);font-size:.8rem;color:var(--faint)}
+.entry .media{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.entry.no-video .copy{grid-column:span 2}
+.entry h3{font-family:var(--fd);font-size:1.25rem;letter-spacing:-.02em;line-height:1.25;text-wrap:balance}
+.entry .sub{font-family:var(--fm);font-size:.73rem;color:var(--faint);margin:.35rem 0 .6rem}
+.entry p{color:var(--muted);font-size:.92rem;max-width:60ch}
+.entry p strong{color:var(--text)}
+.stackline{font-family:var(--fm);font-size:.72rem;color:var(--faint);margin-top:.7rem}
+
+/* also list */
+.also{list-style:none;border-top:1px solid var(--line)}
+.also li{padding:1rem 0;border-bottom:1px solid var(--line)}
+.also a.row{display:flex;gap:.3rem;align-items:baseline;text-decoration:none;flex-direction:column}
+@media(min-width:800px){.also a.row{flex-direction:row;gap:1rem}}
+.also a.row:hover h4{text-decoration:underline}
+.also h4{font-family:var(--fd);font-size:1rem;white-space:nowrap}
+.also p{color:var(--muted);font-size:.88rem;flex:1}
+.also .go{font-family:var(--fm);font-size:.78rem;color:var(--faint);white-space:nowrap}
+.also .tests{font-family:var(--fm);font-size:.7rem;color:var(--faint)}
 
 /* about */
-.about{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.4rem}
-.about p{color:var(--muted);font-size:.95rem;max-width:70ch}
+.about{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:1.4rem}
+@media(min-width:800px){.about{display:grid;grid-template-columns:7fr 5fr;gap:2rem}}
+.about p{color:var(--muted);font-size:.95rem;max-width:64ch}
 .about p+p{margin-top:.7rem}
 .about strong{color:var(--text)}
-.stack{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:1rem}
-.stack span{font-family:var(--fm);font-size:.72rem;border:1px solid var(--line-strong);border-radius:6px;padding:.2rem .6rem;color:var(--text)}
+.about .side{font-family:var(--fm);font-size:.78rem;color:var(--faint);line-height:1.8}
+@media(max-width:799px){.about .side{margin-top:1rem;padding-top:1rem;border-top:1px dotted var(--line-strong)}}
 
-/* footer */
-footer{border-top:1px solid var(--line);margin-top:2rem;padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
+footer{border-top:1px solid var(--line);margin-top:1rem;padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
 footer .row{display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center}
-footer a{text-decoration:none;border-bottom:1px dotted var(--faint)}
+footer a{text-decoration:none;border-bottom:1px dotted var(--faint);min-height:44px;display:inline-flex;align-items:center}
 footer a:hover{color:#fff}
 footer .avail{margin-left:auto;font-family:var(--fm);font-size:.75rem;color:var(--faint)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -91,125 +133,155 @@ footer .avail{margin-left:auto;font-family:var(--fm);font-size:.75rem;color:var(
 </head>
 <body>
 <div class="wrap">
+
   <header class="hero">
-    <div class="kicker">Montevideo, Uruguay · UTC−3 · remote-friendly</div>
-    <h1>Tiago Colo builds software that shows its work. <em>Junior Software Engineer.</em></h1>
-    <p class="lede">Flagship: <strong>FieldCRM</strong> — an offline-first mini-CRM for home-service shops (kanban, customers, AI-drafted follow-ups, analytics, Stripe/Twilio webhooks). Around it: <strong>RAG with cited answers</strong>, a <strong>multi-agent support system</strong> you can watch think, a <strong>ticket classifier</strong> that knows when to ask a human, a <strong>unified ops dashboard</strong>, a <strong>calibrated churn predictor</strong>, a <strong>zero-dependency offline outbox library</strong>, a <strong>live voice-AI squad</strong> you can talk to right now, and a <strong>WordPress theme for law firms</strong> with a live demo site. Every repo runs with one command, ships tests and evals, and the AI backends are verified against a real LLM API.</p>
-    <div class="cta">
-      <a class="btn primary" href="#projects">Watch the demos</a>
-      <a class="btn ghost" href="https://github.com/tiagoccepp">GitHub</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/tiago-colo-640057402/">LinkedIn</a>
+    <div>
+      <div class="kicker">Tiago Colo · Montevideo, UY · UTC−3 · remote-friendly</div>
+      <h1>Hire a junior who ships tested, demoable software. <span class="dim">Every claim below clicks through to something live.</span></h1>
+      <p class="lede">I'm Tiago Colo, Junior Software Engineer. <strong>8 live demos</strong> you can try right now — an <strong>offline-first CRM</strong>, <strong>RAG with citations</strong>, a <strong>multi-agent support system</strong>, <strong>confidence-gated triage</strong>, <strong>calibrated churn scoring</strong>, a <strong>voice-AI squad</strong>, and a <strong>WordPress theme with a live site</strong>. <strong>224 tests green</strong> across 6 repos, every AI backend live-verified against a real LLM API.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="https://fieldcrm-60xk.onrender.com">Try FieldCRM live</a>
+      </div>
+      <nav class="text-links" aria-label="Profiles">
+        <a href="https://github.com/tiagoccepp">GitHub</a>
+        <a href="https://www.linkedin.com/in/tiago-colo-640057402/">LinkedIn</a>
+        <a href="mailto:colotiago8@gmail.com">colotiago8@gmail.com</a>
+        <a href="#work">Skip to the demos ↓</a>
+      </nav>
     </div>
-    <div class="meta">TypeScript · React · Next.js · Node · Python · FastAPI · LLMs · RAG · Agents · scikit-learn · Postgres · WordPress · Git · technical English</div>
+    <aside class="proof" aria-label="Hiring proof">
+      <div class="stamp">● open to work · junior software / AI</div>
+      <ul>
+        <li><strong>8 live demos</strong> — no setup, click and try</li>
+        <li><strong>224 tests</strong> green across 6 repos</li>
+        <li><strong>Full-stack:</strong> React + Node + Postgres</li>
+        <li><strong>AI:</strong> RAG · agents · evals · calibration</li>
+        <li><strong>Ships:</strong> Docker, Render, Neon, Pages</li>
+      </ul>
+      <div class="login">FieldCRM demo login:<br>luis@blueridge.example / Demo1234!</div>
+    </aside>
   </header>
 
-  <section id="projects" aria-label="Projects">
-    <div class="sec-h">Flagship — full-stack, offline-first</div>
-
-    <article class="card">
-      <video src="assets/video/demo_fieldcrm.webm" poster="assets/img/fieldcrm.png" autoplay muted loop playsinline preload="metadata" aria-label="FieldCRM kanban demo video"></video>
-      <div class="body">
-        <h3><span class="dot" style="background:#F97316"></span>FieldCRM — offline-first mini-CRM <span class="live-pill">flagship</span></h3>
-        <p>Field techs keep working with <strong>zero signal</strong>: jobs kanban, customers, follow-ups with <strong>AI-drafted SMS</strong>, revenue analytics, <strong>Stripe/Twilio webhooks</strong> — and a durable offline outbox so field writes queue instead of failing. Multi-tenant auth, 32 Vitest tests, full docs (API, security, deploy). Live deploy landing on Render.</p>
-        <div class="tags"><span>TypeScript</span><span>React 18</span><span>Node 22</span><span>PostgreSQL</span><span>Drizzle</span><span>offline-first</span><span>webhooks</span></div>
-        <div class="links"><a class="gh" href="https://github.com/tiagoccepp/fieldcrm">github.com/tiagoccepp/fieldcrm</a><span class="run">docker compose up && npm run dev:web</span></div>
+  <section aria-label="Flagship project">
+    <div class="sec-h"><span class="n">00</span><h2>Flagship — start here</h2><span class="rule"></span></div>
+    <article class="flag">
+      <div class="media">
+        <video src="assets/video/demo_fieldcrm.webm" poster="assets/img/fieldcrm.png" autoplay muted loop playsinline preload="metadata" aria-label="FieldCRM kanban demo video: advancing a job through the pipeline"></video>
       </div>
-    </article>
-
-    <div class="sec-h">AI support systems — press play, no setup needed</div>
-
-    <article class="card">
-      <video src="assets/video/demo_rag.webm" poster="assets/img/rag.png" autoplay muted loop playsinline preload="metadata" aria-label="RAG Docs Assistant demo video"></video>
       <div class="body">
-        <h3><span class="dot" style="background:var(--rag)"></span>RAG Docs Assistant</h3>
-        <p>Ask company docs in plain language. Hybrid <strong>BM25 + vector search fused with RRF</strong>, reranking, and answers with <strong>[n] citations</strong> — or an honest abstention when the docs don't have it. 38 tests, RAGAS-style evals gating deploys.</p>
-        <div class="tags"><span>Python</span><span>FastAPI</span><span>hybrid search</span><span>rerank</span><span>abstention</span><span>live-verified LLM</span></div>
-        <div class="links"><a class="demo" href="https://tiagoccepp.github.io/rag-docs-assistant/?demo=1">try it now ↗</a><a class="gh" href="https://github.com/tiagoccepp/rag-docs-assistant">github.com/tiagoccepp/rag-docs-assistant</a><span class="run">git clone … && ./demo.sh</span></div>
-      </div>
-    </article>
-
-    <article class="card">
-      <video src="assets/video/demo_agent.webm" poster="assets/img/agent.png" autoplay muted loop playsinline preload="metadata" aria-label="Support Agent Tools demo video"></video>
-      <div class="body">
-        <h3><span class="dot" style="background:var(--agent)"></span>Support Agent Tools</h3>
-        <p>A <strong>Triage → Support / Onboarding</strong> multi-agent system with a real tool-use loop: KB search, inventory, ticket creation, email — plus <strong>PII redaction and escalation guardrails</strong>. The trajectory panel streams every step over SSE. 35 tests, trajectory evals.</p>
-        <div class="tags"><span>Python</span><span>AI agents</span><span>function calling</span><span>SSE</span><span>guardrails</span><span>live-verified LLM</span></div>
-        <div class="links"><a class="demo" href="https://tiagoccepp.github.io/support-agent-tools/?demo=1">try it now ↗</a><a class="gh" href="https://github.com/tiagoccepp/support-agent-tools">github.com/tiagoccepp/support-agent-tools</a><span class="run">git clone … && ./demo.sh</span></div>
-      </div>
-    </article>
-
-    <article class="card">
-      <video src="assets/video/demo_tickets.webm" poster="assets/img/route.png" autoplay muted loop playsinline preload="metadata" aria-label="Ticket Triage AI demo video"></video>
-      <div class="body">
-        <h3><span class="dot" style="background:var(--tick)"></span>Ticket Triage AI</h3>
-        <p><strong>Confidence-gated automation</strong>: sure tickets auto-route, uncertain ones queue for a human with approve/override. Taxonomy-as-data, runner-up calibration, duplicate detection, full audit trail. 33 tests, accuracy-on-routed evals.</p>
-        <div class="tags"><span>Python</span><span>classification</span><span>calibration</span><span>review queue</span><span>JSON-mode</span><span>live-verified LLM</span></div>
-        <div class="links"><a class="demo" href="https://tiagoccepp.github.io/ticket-triage-ai/?demo=1">try it now ↗</a><a class="gh" href="https://github.com/tiagoccepp/ticket-triage-ai">github.com/tiagoccepp/ticket-triage-ai</a><span class="run">git clone … && ./demo.sh</span></div>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="body">
-        <h3><span class="dot" style="background:#A78BFA"></span>Support Ops Dashboard</h3>
-        <p>One <strong>Next.js console</strong> unifying the RAG, agent and triage backends: airport-board status strip with honest <strong>LIVE/FIXTURE badges</strong>, inline answers with citations, trajectory replay, ticket queue with approve/override. Zero-config — recorded fixtures ship in the repo. 14 tests.</p>
-        <div class="tags"><span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>static export</span><span>fixtures</span></div>
-        <div class="links"><a class="demo" href="https://tiagoccepp.github.io/support-ops-dashboard/">try it now ↗</a><a class="gh" href="https://github.com/tiagoccepp/support-ops-dashboard">github.com/tiagoccepp/support-ops-dashboard</a><span class="run">pnpm install && pnpm dev</span></div>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="body">
-        <h3><span class="dot" style="background:#94A3B8"></span>offline-outbox-js</h3>
-        <p>The FieldCRM sync engine, extracted as a <strong>framework-free TypeScript library</strong>: durable mutations persisted to localStorage, FIFO flush with <strong>exponential backoff + jitter</strong>, per-mutation status, events, three conflict strategies. <strong>Zero runtime dependencies</strong>, 36 tests, MIT. Works in browsers, workers and Node.</p>
-        <div class="tags"><span>TypeScript</span><span>zero deps</span><span>offline-first</span><span>MIT</span></div>
-        <div class="links"><a class="gh" href="https://github.com/tiagoccepp/offline-outbox-js">github.com/tiagoccepp/offline-outbox-js</a><span class="run">npm run demo → :8040/demo/</span></div>
-      </div>
-    </article>
-
-    <article class="card">
-      <video src="assets/video/demo_ml.webm" poster="assets/img/ml.png" autoplay muted loop playsinline preload="metadata" aria-label="Churn Predictor ML demo video"></video>
-      <div class="body">
-        <h3><span class="dot" style="background:#2DD4BF"></span>Churn Predictor ML</h3>
-        <p><strong>Calibrated churn scoring</strong>: HistGradientBoosting + 5-fold sigmoid calibration, so probabilities mean what they say (log-loss 0.39 vs 0.49 uncalibrated, ECE 0.023). The UI explains every score with <strong>top-3 drivers</strong> and a live model card with calibration table. 19 tests, fail-loud eval gates.</p>
-        <div class="tags"><span>Python</span><span>scikit-learn</span><span>calibration</span><span>explainability</span><span>evals</span></div>
-        <div class="links"><a class="demo" href="https://tiagoccepp.github.io/churn-predictor-ml/">try it now ↗</a><a class="gh" href="https://github.com/tiagoccepp/churn-predictor-ml">github.com/tiagoccepp/churn-predictor-ml</a><span class="run">git clone … && ./demo.sh</span></div>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="body">
-        <h3><span class="dot" style="background:#FF8A5C"></span>AI Employee Squad — voice meetings <span class="live-pill">live</span></h3>
-        <p>Talk to a whole AI company in your browser: a CEO and specialists who answer by <strong>voice or text</strong>, remember past meetings and learn. I adapted this open-source sim (fork) to <strong>opencode Zen — a free LLM pool with rotation</strong>, added <strong>zero-install browser voice</strong> (Chrome/Edge/Safari; full text chat everywhere) plus a <strong>one-click instant demo</strong>, and deployed it live. Spanish-first, no signup.</p>
-        <div class="tags"><span>TypeScript</span><span>WebSocket</span><span>Web Speech API</span><span>LLM rotation</span><span>Render</span><span>live-verified LLM</span></div>
-        <div class="links"><a class="demo" href="https://equipo-0jfr.onrender.com">talk to them ↗</a><a class="gh" href="https://github.com/tiagoccepp/equipo-zen">github.com/tiagoccepp/equipo-zen</a></div>
-      </div>
-    </article>
-
-    <article class="card">
-      <video src="assets/video/demo_wp.webm" poster="assets/img/wp.png" autoplay muted loop playsinline preload="metadata" aria-label="Law firm site demo video"></video>
-      <div class="body">
-        <h3><span class="dot" style="background:#C9A227"></span>Lawfirm Publisher — WordPress theme</h3>
-        <p>A complete <strong>custom WordPress theme</strong> for law firms: Gutenberg-ready templates, <strong>ACF article-hero layout</strong>, customizer accent color, sticky auto-TOC, SEO meta/OG/schema, self-hosted fonts — plus a <strong>publishing SOP</strong> for 100 pieces/month. The static mirror below is the live front end.</p>
-        <div class="tags"><span>WordPress / PHP</span><span>ACF</span><span>Gutenberg</span><span>on-page SEO</span><span>HTML / CSS / JS</span></div>
-        <div class="links"><a class="gh" href="https://varela-ledesma-demo.netlify.app/">varela-ledesma-demo.netlify.app — live site</a><a class="gh" href="https://github.com/tiagoccepp/wp-lawfirm-publisher">github.com/tiagoccepp/wp-lawfirm-publisher</a></div>
+        <div>
+          <h3>FieldCRM — offline-first mini-CRM for home-service shops <span class="live-pill">live</span></h3>
+          <div class="sub">React 18 · Express 5 · Drizzle · PostgreSQL 16 · Tailwind</div>
+          <p>Multi-tenant auth with roles, jobs <strong>kanban</strong>, customers, <strong>follow-ups with AI SMS drafts</strong>, analytics, and <strong>Stripe/Twilio webhooks</strong> with signature verification — plus an <strong>offline outbox</strong> so field techs keep working with zero signal. <strong>32 backend tests green</strong>, Docker + render.yaml + Neon-ready migrations.</p>
+          <div class="links">
+            <a class="demo" href="https://fieldcrm-60xk.onrender.com">Open live demo ↗</a>
+            <a class="gh" href="https://github.com/tiagoccepp/fieldcrm">github.com/tiagoccepp/fieldcrm</a>
+          </div>
+        </div>
+        <ul class="facts">
+          <li><strong>Offline story:</strong> toggle DevTools offline, writes queue in the Sync drawer instead of failing</li>
+          <li><strong>Security proof:</strong> <span class="mono">authz tests — cross-org reads → 404</span></li>
+          <li><strong>Companion lib:</strong> <a class="gh" href="https://github.com/tiagoccepp/offline-outbox-js">offline-outbox-js</a> — extracted sync engine, 36 tests, zero deps</li>
+          <li><strong>Run it:</strong> <span class="mono">docker compose up && npm run dev</span></li>
+        </ul>
       </div>
     </article>
   </section>
 
-  <section aria-label="Security labs">
-    <div class="sec-h">Also: hands-on security labs</div>
-    <div class="labs">
-      <a class="lab" href="https://github.com/tiagoccepp/HoneyPot-Project"><h4>HoneyPot Project</h4><p>Real SOC investigation of a honeypot intrusion — MITRE ATT&amp;CK mapping, Sentinel KQL, incident report. 1,400+ attempts analyzed.</p><span class="go">open repo →</span></a>
-      <a class="lab" href="https://github.com/tiagoccepp/ActiveDirectory-HelpDesk-Lab"><h4>Active Directory HelpDesk Lab</h4><p>AD DS from scratch: PowerShell automation, GPO hardening, incident response workflows.</p><span class="go">open repo →</span></a>
+  <section id="work" aria-label="Selected work">
+    <div class="sec-h"><span class="n">01–06</span><h2>Selected work — press play, no setup needed</h2><span class="rule"></span></div>
+    <div class="work">
+
+      <article class="entry">
+        <div class="idx">01</div>
+        <div class="media"><video src="assets/video/demo_rag.webm" poster="assets/img/rag.png" muted loop playsinline preload="metadata" controls aria-label="RAG Docs Assistant demo video"></video></div>
+        <div class="copy">
+          <h3>RAG Docs Assistant — cited answers or honest abstention</h3>
+          <div class="sub">Python · FastAPI · hybrid search · rerank · 51 tests</div>
+          <p>Ask company docs in plain language. <strong>BM25 + vector fused with RRF</strong>, reranking, answers with <strong>[n] citations</strong> — or abstention when the docs don't have it. RAGAS-style evals gate deploys, live-verified against a real LLM API.</p>
+          <div class="stackline">51 tests · evals · live-verified LLM</div>
+          <div class="links"><a class="demo" href="https://tiagoccepp.github.io/rag-docs-assistant/?demo=1">try it now ↗</a><a class="gh" href="https://github.com/tiagoccepp/rag-docs-assistant">repo</a></div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="idx">02</div>
+        <div class="media"><video src="assets/video/demo_agent.webm" poster="assets/img/agent.png" muted loop playsinline preload="metadata" controls aria-label="Support Agent Tools demo video"></video></div>
+        <div class="copy">
+          <h3>Support Agent Tools — a support team you can watch think</h3>
+          <div class="sub">Python · agents · function calling · SSE · 43 tests</div>
+          <p><strong>Triage → Support / Onboarding</strong> with a real tool-use loop: KB search, inventory, ticket creation, email — plus <strong>PII redaction and escalation guardrails</strong>. Every step streams over SSE. Golden-trajectory evals, live-verified LLM.</p>
+          <div class="stackline">43 tests · trajectory evals · guardrails</div>
+          <div class="links"><a class="demo" href="https://tiagoccepp.github.io/support-agent-tools/?demo=1">try it now ↗</a><a class="gh" href="https://github.com/tiagoccepp/support-agent-tools">repo</a></div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="idx">03</div>
+        <div class="media"><video src="assets/video/demo_tickets.webm" poster="assets/img/route.png" muted loop playsinline preload="metadata" controls aria-label="Ticket Triage AI demo video"></video></div>
+        <div class="copy">
+          <h3>Ticket Triage AI — automation that knows when to ask a human</h3>
+          <div class="sub">Python · classification · calibration · review queue · 41 tests</div>
+          <p><strong>Confidence-gated:</strong> sure tickets auto-route, uncertain ones queue for a human with approve/override. Taxonomy-as-data, runner-up calibration, duplicate detection, full audit trail. Live-verified LLM.</p>
+          <div class="stackline">41 tests · accuracy-on-routed evals</div>
+          <div class="links"><a class="demo" href="https://tiagoccepp.github.io/ticket-triage-ai/?demo=1">try it now ↗</a><a class="gh" href="https://github.com/tiagoccepp/ticket-triage-ai">repo</a></div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="idx">04</div>
+        <div class="media"><video src="assets/video/demo_ml.webm" poster="assets/img/ml.png" muted loop playsinline preload="metadata" controls aria-label="Churn Predictor ML demo video"></video></div>
+        <div class="copy">
+          <h3>Churn Predictor ML — probabilities that mean what they say</h3>
+          <div class="sub">Python · scikit-learn · calibration · explainability · 21 tests</div>
+          <p>HistGradientBoosting + 5-fold sigmoid calibration: <strong>log-loss 0.391 vs 0.492 uncalibrated, ECE 0.023</strong>. Every score explained with <strong>top-3 drivers</strong> plus a live model card with calibration table. Fail-loud eval gates.</p>
+          <div class="stackline">21 tests · AUC 0.79 · Brier 0.1215</div>
+          <div class="links"><a class="demo" href="https://tiagoccepp.github.io/churn-predictor-ml/">try it now ↗</a><a class="gh" href="https://github.com/tiagoccepp/churn-predictor-ml">repo</a></div>
+        </div>
+      </article>
+
+      <article class="entry no-video">
+        <div class="idx">05</div>
+        <div class="copy">
+          <h3>AI Employee Squad — talk to a whole AI company <span class="live-pill">live</span></h3>
+          <div class="sub">TypeScript · WebSocket · Web Speech API · LLM rotation · Render</div>
+          <p>A CEO and specialists who answer by <strong>voice or text</strong>, remember past meetings and learn. I adapted this open-source sim (fork) to <strong>opencode Zen — a free LLM pool with rotation</strong>, added <strong>zero-install browser voice</strong> plus a <strong>one-click instant demo</strong>. Spanish-first, no signup.</p>
+          <div class="links"><a class="demo" href="https://equipo-0jfr.onrender.com">talk to them ↗</a><a class="gh" href="https://github.com/tiagoccepp/equipo-zen">repo</a></div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="idx">06</div>
+        <div class="media"><video src="assets/video/demo_wp.webm" poster="assets/img/wp.png" muted loop playsinline preload="metadata" controls aria-label="Lawfirm Publisher theme demo video"></video></div>
+        <div class="copy">
+          <h3>Lawfirm Publisher — custom WordPress theme with a live site</h3>
+          <div class="sub">WordPress / PHP · ACF · Gutenberg · on-page SEO</div>
+          <p>Gutenberg-ready templates, <strong>ACF article-hero layout</strong>, customizer accent color, sticky auto-TOC, SEO meta/OG/schema, self-hosted fonts — plus a <strong>publishing SOP for 100 pieces/month</strong>. The static mirror is the live front end.</p>
+          <div class="links"><a class="demo" href="https://varela-ledesma-demo.netlify.app/">open live site ↗</a><a class="gh" href="https://github.com/tiagoccepp/wp-lawfirm-publisher">repo</a></div>
+        </div>
+      </article>
+
     </div>
+  </section>
+
+  <section aria-label="More">
+    <div class="sec-h"><span class="n">+</span><h2>Also — libraries, dashboards, security labs</h2><span class="rule"></span></div>
+    <ul class="also">
+      <li><a class="row" href="https://github.com/tiagoccepp/offline-outbox-js"><h4>offline-outbox-js</h4><p>Durable sync engine extracted from FieldCRM — FIFO queue, backoff + jitter, 3 conflict strategies. <span class="tests">36 tests · zero deps</span> — live inside the FieldCRM Sync drawer.</p><span class="go">repo →</span></a></li>
+      <li><a class="row" href="https://tiagoccepp.github.io/support-ops-dashboard/"><h4>support-ops-dashboard</h4><p>Next.js ops console over the support backends — live dashboard with recorded-fixture fallback.</p><span class="go">live →</span></a></li>
+      <li><a class="row" href="https://github.com/tiagoccepp/HoneyPot-Project"><h4>HoneyPot Project</h4><p>Real SOC investigation of a honeypot intrusion — MITRE ATT&amp;CK, Sentinel KQL, incident report. 1,400 attempts from a single IP.</p><span class="go">repo →</span></a></li>
+      <li><a class="row" href="https://github.com/tiagoccepp/ActiveDirectory-HelpDesk-Lab"><h4>AD HelpDesk Lab</h4><p>Active Directory from scratch: PowerShell automation, GPO hardening, incident-response workflows.</p><span class="go">repo →</span></a></li>
+    </ul>
   </section>
 
   <section aria-label="About">
-    <div class="sec-h">How I work</div>
+    <div class="sec-h"><span class="n">§</span><h2>How I work</h2><span class="rule"></span></div>
     <div class="about">
-      <p>I come from <strong>support and helpdesk</strong> (high-volume, users first), now building as a <strong>developer</strong>. I design each project end to end — full-stack TypeScript apps and Python LLM backends — work hands-on with <strong>AI coding tools</strong>, and verify everything: tests, evals, live transcripts, real browsers.</p>
-      <p>Currently looking for a <strong>junior software / AI role</strong> — remote, hybrid or on-site in Montevideo.</p>
-      <div class="stack"><span>TypeScript</span><span>React / Next.js</span><span>Node</span><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>LLMs + RAG + Agents</span><span>scikit-learn</span><span>PowerShell</span><span>Linux</span><span>Git</span><span>ES / EN / PT</span></div>
+      <div>
+        <p>I come from <strong>support and helpdesk</strong> — high volume, users first — now building as a <strong>developer</strong>. I design each project end to end, work hands-on with <strong>AI coding tools</strong>, and verify everything: tests, evals, live transcripts, real browsers.</p>
+        <p>Looking for a <strong>junior software / AI role</strong> — remote, hybrid, or on-site in Montevideo. Full-time, shifts OK.</p>
+      </div>
+      <div class="side">Python · FastAPI · React · Node · TypeScript<br>PostgreSQL · Drizzle · LLMs + RAG + Agents<br>scikit-learn · Docker · Render · Neon<br>PowerShell · Linux · Git · ES / EN / PT</div>
     </div>
   </section>
 
@@ -221,9 +293,10 @@ footer .avail{margin-left:auto;font-family:var(--fm);font-size:.75rem;color:var(
       <span class="avail">open to work · full-time · shifts OK</span>
     </div>
   </footer>
+
 </div>
 <script>
-if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('video').forEach(v=>{v.pause();v.removeAttribute('autoplay');});}
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('video').forEach(function(v){v.pause();v.removeAttribute('autoplay');});}
 </script>
 </body>
 </html>
