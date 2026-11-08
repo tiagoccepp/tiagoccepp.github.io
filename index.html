@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0B0F14">
-<meta name="description" content="Tiago Colo — Junior Software Engineer. Python, LLMs, RAG and AI agents. Watch every project run.">
+<meta name="description" content="Tiago Colo — Junior Software Engineer. Offline-first field software, RAG, AI agents. Watch every project run.">
 <meta property="og:title" content="Tiago Colo — Junior Software Engineer">
-<meta property="og:description" content="RAG, multi-agent systems, ticket triage — live demos, tests, evals. Montevideo, UY.">
+<meta property="og:description" content="FieldCRM flagship, RAG, multi-agent systems, ticket triage — live demos, tests, evals. Montevideo, UY.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0F14'/%3E%3Ctext x='16' y='23' font-size='18' text-anchor='middle' fill='%23E8EDF2' font-family='Georgia'%3ETC%3C/text%3E%3C/svg%3E">
 <title>Tiago Colo — Junior Software Engineer</title>
@@ -93,18 +93,30 @@ footer .avail{margin-left:auto;font-family:var(--fm);font-size:.75rem;color:var(
 <div class="wrap">
   <header class="hero">
     <div class="kicker">Montevideo, Uruguay · UTC−3 · remote-friendly</div>
-    <h1>Tiago Colo builds AI software that shows its work. <em>Junior Software Engineer.</em></h1>
-    <p class="lede">Six projects, five recorded demos — plus a <strong>live voice-AI squad</strong> you can talk to right now. <strong>RAG with cited answers</strong>, a <strong>multi-agent support system</strong> you can watch think, a <strong>ticket classifier</strong> that knows when to ask a human, a <strong>calibrated churn predictor</strong>, and a <strong>WordPress theme for law firms</strong> with a live demo site. Every repo runs with one command, ships tests and evals, and the AI backends are verified against a real LLM API.</p>
+    <h1>Tiago Colo builds software that shows its work. <em>Junior Software Engineer.</em></h1>
+    <p class="lede">Flagship: <strong>FieldCRM</strong> — an offline-first mini-CRM for home-service shops (kanban, customers, AI-drafted follow-ups, analytics, Stripe/Twilio webhooks). Around it: <strong>RAG with cited answers</strong>, a <strong>multi-agent support system</strong> you can watch think, a <strong>ticket classifier</strong> that knows when to ask a human, a <strong>unified ops dashboard</strong>, a <strong>calibrated churn predictor</strong>, a <strong>zero-dependency offline outbox library</strong>, a <strong>live voice-AI squad</strong> you can talk to right now, and a <strong>WordPress theme for law firms</strong> with a live demo site. Every repo runs with one command, ships tests and evals, and the AI backends are verified against a real LLM API.</p>
     <div class="cta">
       <a class="btn primary" href="#projects">Watch the demos</a>
       <a class="btn ghost" href="https://github.com/tiagoccepp">GitHub</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/tiago-colo-640057402/">LinkedIn</a>
     </div>
-    <div class="meta">Python · FastAPI · LLMs · RAG · Agents · scikit-learn · WordPress · SQL · Git · technical English</div>
+    <div class="meta">TypeScript · React · Next.js · Node · Python · FastAPI · LLMs · RAG · Agents · scikit-learn · Postgres · WordPress · Git · technical English</div>
   </header>
 
   <section id="projects" aria-label="Projects">
-    <div class="sec-h">Selected projects — press play, no setup needed</div>
+    <div class="sec-h">Flagship — full-stack, offline-first</div>
+
+    <article class="card">
+      <video src="assets/video/demo_fieldcrm.webm" poster="assets/img/fieldcrm.png" autoplay muted loop playsinline preload="metadata" aria-label="FieldCRM kanban demo video"></video>
+      <div class="body">
+        <h3><span class="dot" style="background:#F97316"></span>FieldCRM — offline-first mini-CRM <span class="live-pill">flagship</span></h3>
+        <p>Field techs keep working with <strong>zero signal</strong>: jobs kanban, customers, follow-ups with <strong>AI-drafted SMS</strong>, revenue analytics, <strong>Stripe/Twilio webhooks</strong> — and a durable offline outbox so field writes queue instead of failing. Multi-tenant auth, 32 Vitest tests, full docs (API, security, deploy). Live deploy landing on Render.</p>
+        <div class="tags"><span>TypeScript</span><span>React 18</span><span>Node 22</span><span>PostgreSQL</span><span>Drizzle</span><span>offline-first</span><span>webhooks</span></div>
+        <div class="links"><a class="gh" href="https://github.com/tiagoccepp/fieldcrm">github.com/tiagoccepp/fieldcrm</a><span class="run">docker compose up && npm run dev:web</span></div>
+      </div>
+    </article>
+
+    <div class="sec-h">AI support systems — press play, no setup needed</div>
 
     <article class="card">
       <video src="assets/video/demo_rag.webm" poster="assets/img/rag.png" autoplay muted loop playsinline preload="metadata" aria-label="RAG Docs Assistant demo video"></video>
@@ -133,6 +145,24 @@ footer .avail{margin-left:auto;font-family:var(--fm);font-size:.75rem;color:var(
         <p><strong>Confidence-gated automation</strong>: sure tickets auto-route, uncertain ones queue for a human with approve/override. Taxonomy-as-data, runner-up calibration, duplicate detection, full audit trail. 33 tests, accuracy-on-routed evals.</p>
         <div class="tags"><span>Python</span><span>classification</span><span>calibration</span><span>review queue</span><span>JSON-mode</span><span>live-verified LLM</span></div>
         <div class="links"><a class="demo" href="https://tiagoccepp.github.io/ticket-triage-ai/?demo=1">try it now ↗</a><a class="gh" href="https://github.com/tiagoccepp/ticket-triage-ai">github.com/tiagoccepp/ticket-triage-ai</a><span class="run">git clone … && ./demo.sh</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="body">
+        <h3><span class="dot" style="background:#A78BFA"></span>Support Ops Dashboard</h3>
+        <p>One <strong>Next.js console</strong> unifying the RAG, agent and triage backends: airport-board status strip with honest <strong>LIVE/FIXTURE badges</strong>, inline answers with citations, trajectory replay, ticket queue with approve/override. Zero-config — recorded fixtures ship in the repo. 14 tests.</p>
+        <div class="tags"><span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>static export</span><span>fixtures</span></div>
+        <div class="links"><a class="demo" href="https://tiagoccepp.github.io/support-ops-dashboard/">try it now ↗</a><a class="gh" href="https://github.com/tiagoccepp/support-ops-dashboard">github.com/tiagoccepp/support-ops-dashboard</a><span class="run">pnpm install && pnpm dev</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="body">
+        <h3><span class="dot" style="background:#94A3B8"></span>offline-outbox-js</h3>
+        <p>The FieldCRM sync engine, extracted as a <strong>framework-free TypeScript library</strong>: durable mutations persisted to localStorage, FIFO flush with <strong>exponential backoff + jitter</strong>, per-mutation status, events, three conflict strategies. <strong>Zero runtime dependencies</strong>, 36 tests, MIT. Works in browsers, workers and Node.</p>
+        <div class="tags"><span>TypeScript</span><span>zero deps</span><span>offline-first</span><span>MIT</span></div>
+        <div class="links"><a class="gh" href="https://github.com/tiagoccepp/offline-outbox-js">github.com/tiagoccepp/offline-outbox-js</a><span class="run">npm run demo → :8040/demo/</span></div>
       </div>
     </article>
 
@@ -177,9 +207,9 @@ footer .avail{margin-left:auto;font-family:var(--fm);font-size:.75rem;color:var(
   <section aria-label="About">
     <div class="sec-h">How I work</div>
     <div class="about">
-      <p>I come from <strong>support and helpdesk</strong> (high-volume, users first), now building as a <strong>developer</strong>. I design each project end to end, work hands-on with <strong>AI coding tools</strong>, and verify everything: tests, evals, live transcripts, real browsers.</p>
+      <p>I come from <strong>support and helpdesk</strong> (high-volume, users first), now building as a <strong>developer</strong>. I design each project end to end — full-stack TypeScript apps and Python LLM backends — work hands-on with <strong>AI coding tools</strong>, and verify everything: tests, evals, live transcripts, real browsers.</p>
       <p>Currently looking for a <strong>junior software / AI role</strong> — remote, hybrid or on-site in Montevideo.</p>
-      <div class="stack"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>LLMs + RAG + Agents</span><span>scikit-learn</span><span>PowerShell</span><span>Linux</span><span>Git</span><span>ES / EN / PT</span></div>
+      <div class="stack"><span>TypeScript</span><span>React / Next.js</span><span>Node</span><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>LLMs + RAG + Agents</span><span>scikit-learn</span><span>PowerShell</span><span>Linux</span><span>Git</span><span>ES / EN / PT</span></div>
     </div>
   </section>
 
